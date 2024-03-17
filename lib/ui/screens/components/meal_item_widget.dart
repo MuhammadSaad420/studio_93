@@ -91,6 +91,9 @@ class MealItemWidget extends HookWidget {
                     onRemove: (productID) {
                       mealNotifier.value =
                           mealNotifier.value.removeProduct(productID);
+                      if (mealNotifier.value.listOfProducts.isEmpty) {
+                        editModeNotifier.value = false;
+                      }
                     },
                   ).withProductListDecoration()
               ],
